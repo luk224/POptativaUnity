@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class player_control : MonoBehaviour {
-
-    float vel = 0.01f;
+    public GameObject parent;
+    float vel = 5f;
 	// Use this for initialization
 	void Start () {
 		
@@ -18,12 +18,14 @@ public class player_control : MonoBehaviour {
     public void moveThisRight()
     {
         
-        this.transform.Translate(vel, 0, 0);
+        //this.transform.Translate(vel, 0, 0);
+        parent.transform.Rotate(0, 0, -vel);
+        
     }
     public void moveThisLeft()
     {
-
-        this.transform.Translate(-vel, 0, 0);
+        parent.transform.Rotate(0, 0, vel);
+        //this.transform.Translate(-vel, 0, 0);
         
     }
 

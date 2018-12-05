@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class player_control : MonoBehaviour {
 
+    float vel = 0.01f;
 	// Use this for initialization
 	void Start () {
 		
@@ -13,4 +14,18 @@ public class player_control : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public void moveThisRight()
+    {
+        
+        this.transform.Translate(vel, 0, 0);
+    }
+    public void moveThisLeft()
+    {
+
+        this.transform.Translate(-vel, 0, 0);
+        
+    }
+
+   
 }

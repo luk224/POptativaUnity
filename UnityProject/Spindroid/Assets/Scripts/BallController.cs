@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BallController : MonoBehaviour {
+    public GameObject parent_Player;
     public GameObject player;
 
     Vector3 vel;
@@ -10,14 +11,14 @@ public class BallController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         vel = new Vector3(0, 0,0);
-        this.transform.parent = player.transform;
-        transform.localPosition = new Vector3(0, 2.5f, 0);
-
-
+        transform.parent = parent_Player.transform;
+        
+        transform.localPosition = new Vector3(0, player.transform.localPosition.y +0.15f, 0);
     }
 	
 	// Update is called once per frame
 	void Update () {
+        Debug.Log(vel);
         transform.Translate(vel);
 
 
@@ -25,14 +26,22 @@ public class BallController : MonoBehaviour {
 
     public void Fire()
     {
-        this.transform.parent = null;
+        transform.parent = null;
         transform.rotation = new Quaternion(0, 0, 0,0);
         Vector3 direction = player.transform.up;
-        Debug.Log(direction);
         direction.Normalize();
         vel =  direction * velocity;
         
 
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "border_collision")
+        {
+            vel = new Vector3(0, 0, 0);
+            transform.parent = parent_Player.transform;
+            transform.localPosition = new Vector3(0, player.transform.localPosition.y+ 0.15f, 0);
+        }
     }
 
     float toRadians(float angle)
@@ -47,8 +56,12 @@ public class BallController : MonoBehaviour {
         float yprima = contact.normal.x * Mathf.Sin(toRadians(-angle)) + contact.normal.y * Mathf.Cos(toRadians(-angle));
         Vector3 velprima = new Vector3(xprima, yprima, 0);
         velprima.Normalize();
-        Debug.Log(angle);
         vel = velprima * velocity;
+
+        if(collision.gameObject.tag == "brick")
+        {
+            WorldController.getWorldController().hitBrick( collision.gameObject.GetComponent<Brick>());
+        }
     }
     
 

@@ -16,33 +16,34 @@ public class Button : MonoBehaviour , IPointerDownHandler, IPointerUpHandler
 	// Update is called once per frame
 	void Update () {
 
-         if (pointerDown)
-        {
-            if (this.name.Equals("ButtonRight"))
-            {
-                player.moveThisRight();
-            }
-            else if (this.name.Equals("ButtonLeft"))
-            {
-                player.moveThisLeft();
-            }
-            
-        }
+        
 		
 	}
     
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("PinterDown");
-        pointerDown = true;
-        player.moveThisRight();
+        if (this.name.Equals("ButtonRight"))
+        {
+            player.moveThisRight();
+        }
+        else if (this.name.Equals("ButtonLeft"))
+        {
+            player.moveThisLeft();
+        }
 
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        pointerDown = false;
+        if (this.name.Equals("ButtonRight"))
+        {
+            player.notMoveThisRight();
+        }
+        else if (this.name.Equals("ButtonLeft"))
+        {
+            player.notMoveThisLeft();
+        }
 
     }
 }

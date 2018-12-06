@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 5}
-  m_MinSize: {x: 950, y: 492}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -70,7 +70,7 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 442}
   m_MaxSize: {x: 4002, y: 8042}
   vertical: 1
-  controlID: 110
+  controlID: 48
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_MinSize: {x: 917, y: 442}
   m_MaxSize: {x: 22012, y: 10021}
   vertical: 0
-  controlID: 30
+  controlID: 47
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -288,20 +288,20 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 
+    m_SelectedIDs: 062c0000
     m_LastClickedID: 0
-    m_ExpandedIDs: cec2fdffacb4ffff18fbffff00000000f02c0000042d0000262d0000342d0000
+    m_ExpandedIDs: 2c8fffff3aeaffff0cfbffff000000001a2d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: SuperBrick
-      m_OriginalName: SuperBrick
+      m_Name: Ball
+      m_OriginalName: Ball
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: -220666
+      m_UserData: 11668
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0
@@ -385,20 +385,20 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Prefabs
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Prefabs
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Univerdad\4o\JuegosMoviles\P_Optativa_Unity\Repo\POptativaUnity\UnityProject\Spindroid
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 7c2a0000
-    m_LastClickedID: 10876
-    m_ExpandedIDs: 00000000222a000000ca9a3b
+    m_SelectedIDs: d62b0000
+    m_LastClickedID: 11222
+    m_ExpandedIDs: 00000000282a000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -426,7 +426,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000222a0000
+    m_ExpandedIDs: 00000000282a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -509,17 +509,17 @@ MonoBehaviour:
   m_MaximizeOnPlay: 0
   m_Gizmos: 0
   m_Stats: 0
-  m_SelectedSizes: 08000000000000000000000002000000000000000000000000000000000000000000000000000000
+  m_SelectedSizes: 08000000000000000000000010000000000000000000000000000000000000000000000000000000
   m_TargetDisplay: 0
   m_ZoomArea:
     m_HRangeLocked: 0
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -400
-    m_HBaseRangeMax: 400
-    m_VBaseRangeMin: -240
-    m_VBaseRangeMax: 240
+    m_HBaseRangeMin: -375
+    m_HBaseRangeMax: 375
+    m_VBaseRangeMin: -187.5
+    m_VBaseRangeMax: 187.5
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -539,7 +539,7 @@ MonoBehaviour:
       y: 17
       width: 1203
       height: 375
-    m_Scale: {x: 0.78125, y: 0.78125}
+    m_Scale: {x: 1, y: 1}
     m_Translation: {x: 601.5, y: 187.5}
     m_MarginLeft: 0
     m_MarginRight: 0
@@ -547,10 +547,10 @@ MonoBehaviour:
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -769.92
-      y: -240
-      width: 1539.84
-      height: 480
+      x: -601.5
+      y: -187.5
+      width: 1203
+      height: 375
     m_MinimalGUI: 1
   m_defaultScale: 1
   m_TargetTexture: {fileID: 0}
@@ -591,9 +591,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.013523579, y: -0.94560504, z: 10.0038395}
+    m_Target: {x: 0.018258542, y: -0.05259095, z: 9.572825}
     speed: 2
-    m_Value: {x: 0.013523579, y: -0.94560504, z: 10.0038395}
+    m_Value: {x: 0.018258542, y: -0.05259095, z: 9.572825}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -621,13 +621,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.19052693, y: 0.18662123, z: -0.036919106, w: 0.96307635}
+    m_Target: {x: 0.10167373, y: 0.29896557, z: -0.032053936, w: 0.94829196}
     speed: 2
-    m_Value: {x: 0.19052628, y: 0.1866206, z: -0.03691898, w: 0.963073}
+    m_Value: {x: 0.10167357, y: 0.2989651, z: -0.032053888, w: 0.94829047}
   m_Size:
-    m_Target: 12.601941
+    m_Target: 3.7341466
     speed: 2
-    m_Value: 12.601941
+    m_Value: 3.7341466
   m_Ortho:
     m_Target: 0
     speed: 2

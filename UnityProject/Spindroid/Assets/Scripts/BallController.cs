@@ -5,20 +5,18 @@ using UnityEngine;
 public class BallController : MonoBehaviour {
     public GameObject parent_Player;
     public GameObject player;
-
+    Vector3 velRecovery;
     Vector3 vel;
+    public float initialVelocity = 0.01f;
     float velocity = 0.01f;
 	// Use this for initialization
 	void Start () {
-        vel = new Vector3(0, 0,0);
-        transform.parent = parent_Player.transform;
-        
-        transform.localPosition = new Vector3(0, player.transform.localPosition.y +0.15f, 0);
+
     }
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(vel);
+
         transform.Translate(vel);
 
 
@@ -26,11 +24,16 @@ public class BallController : MonoBehaviour {
 
     public void Fire()
     {
-        transform.parent = null;
-        transform.rotation = new Quaternion(0, 0, 0,0);
-        Vector3 direction = player.transform.up;
-        direction.Normalize();
-        vel =  direction * velocity;
+        if (transform.parent != null)
+        {
+            transform.parent = WorldController.getWorldController().gameRoot.transform;
+            transform.rotation = new Quaternion(0, 0, 0, 0);
+            Vector3 direction = player.transform.up;
+            direction.Normalize();
+            velocity = initialVelocity + (WorldController.getWorldController().numLevel) * 0.0025f;
+            vel = direction * velocity;
+        }
+        
         
 
     }
@@ -38,9 +41,8 @@ public class BallController : MonoBehaviour {
     {
         if (other.tag == "border_collision")
         {
-            vel = new Vector3(0, 0, 0);
-            transform.parent = parent_Player.transform;
-            transform.localPosition = new Vector3(0, player.transform.localPosition.y+ 0.15f, 0);
+            resetBall();
+            WorldController.getWorldController().loseLife();    
         }
     }
 
@@ -60,10 +62,27 @@ public class BallController : MonoBehaviour {
 
         if(collision.gameObject.tag == "brick")
         {
-            WorldController.getWorldController().hitBrick( collision.gameObject.GetComponent<Brick>());
+            WorldController.getWorldController().hitBrick(collision.gameObject.GetComponent<Brick>());
         }
     }
+
+    public void resetBall()
+    {
+        vel = Vector3.zero;
+        transform.parent = parent_Player.transform;
+        transform.localPosition = new Vector3(0, player.transform.localPosition.y + 0.15f, 0);
+    }
     
+    public void pause() {
+        velRecovery = new Vector3(vel.x, vel.y, vel.z);
+        vel = Vector3.zero;
+    }
+
+    public void unpause()
+    {
+        vel = velRecovery;
+    }
+
 
 
 }

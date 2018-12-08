@@ -4,11 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class player_control : MonoBehaviour {
-    public GameObject parent;
-
-    public float acceleration = 1.0f;
+  
+    public float acceleration = 0.08f;
     public float decceleration = 0.1f;
-    public float maxSpeed = 6.0f;
+    public float maxSpeed = 3.0f;
 
     private float curSpeed = 0.0f;
     public float factorChangeVel = 0.75f;
@@ -23,7 +22,7 @@ public class player_control : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        parent.transform.Rotate(0, 0, -curSpeed);
+        transform.Rotate(0, 0, -curSpeed);
 
 
         if (movingLeft)
@@ -44,33 +43,43 @@ public class player_control : MonoBehaviour {
                 if (curSpeed < 0)
                     curSpeed *= factorChangeVel;
                 curSpeed += acceleration;
+                if (movingLeft)
+                {
+                    curSpeed = 0;
+                }
             }
 
         }
         if(!(movingRight || movingLeft))//No se pulsa nada:
         {
-            if (curSpeed > 0f)
-            {
-                curSpeed -= decceleration;
-            }
 
-            else if (curSpeed <0f )
-            {
-                curSpeed += decceleration;
-            }
 
-            if (curSpeed > -decceleration && curSpeed < decceleration)
-            {
-                curSpeed = 0;
-            }
-                
-            
+            deccelerate();
         }
 
        
             
             
         
+    }
+    private void deccelerate()
+    {
+
+
+        if (curSpeed > 0f)
+        {
+            curSpeed -= decceleration;
+        }
+
+        else if (curSpeed < 0f)
+        {
+            curSpeed += decceleration;
+        }
+
+        if (curSpeed > -decceleration && curSpeed < decceleration)
+        {
+            curSpeed = 0;
+        }
     }
 
     public void moveThisRight()
@@ -100,5 +109,11 @@ public class player_control : MonoBehaviour {
      public void notMoveThisRight()
     {
         movingRight = false;
+    }
+    
+    public void notMove()
+    {
+        movingRight = false;
+        movingLeft = false;
     }
 }

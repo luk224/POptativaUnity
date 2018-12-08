@@ -22,6 +22,7 @@ public class Brick : MonoBehaviour {
         if(health == 1)
         {
             Destroy(gameObject);
+            WorldController.getWorldController().numBricks--;
         }
         else
         {

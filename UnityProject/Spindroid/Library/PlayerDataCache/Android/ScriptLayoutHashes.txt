@@ -1,6 +1,6 @@
 Android
 PlayerPath?
-D:/Univerdad/4o/JuegosMoviles/P_Optativa_Unity/UnityProject/Spindroid/spindroid.apk
+C:/Users/Andrew/Desktop/spindroid.apk
 SceneListBegin?
 Assets/Scenes/SampleScene.unity
 SceneListEnd?

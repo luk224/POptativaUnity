@@ -24,11 +24,11 @@ public class BallController : MonoBehaviour {
 
     public void Fire()
     {
-        if (transform.parent != null)
+        if (transform.parent == parent_Player.transform)
         {
             transform.parent = WorldController.getWorldController().gameRoot.transform;
             transform.rotation = new Quaternion(0, 0, 0, 0);
-            Vector3 direction = player.transform.up;
+            Vector3 direction = parent_Player.transform.position- player.transform.position;
             direction.Normalize();
             velocity = initialVelocity + (WorldController.getWorldController().numLevel) * 0.0025f;
             vel = direction * velocity;

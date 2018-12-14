@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\LongClickButton.cs" />
     <Compile Include="Assets\Scripts\player_control.cs" />
     <Compile Include="Assets\Scripts\WorldController.cs" />
+    <None Include="Assets\PBR Materials Lite\Info.txt" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>D:/Univerdad/4o/JuegosMoviles/P_Optativa_Unity/Repo/POptativaUnity/UnityProject/Spindroid/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

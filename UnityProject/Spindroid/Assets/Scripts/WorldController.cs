@@ -133,7 +133,7 @@ public class WorldController : MonoBehaviour {
         {
             GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
             sphere.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-            sphere.transform.position = new Vector3(-1.9f + i * 0.15f, 0.9f, 5);
+            sphere.transform.position = new Vector3(-2f + i * 0.15f, 1.05f, 10.5f);
             sphere.GetComponent<Renderer>().material = ballMaterial;
             lives.Add(sphere);
         }
@@ -154,7 +154,7 @@ public class WorldController : MonoBehaviour {
         
         buttonsGame.GetComponent<Canvas>().planeDistance = -1;
         pauseCanvas.SetActive(true);
-        pauseCanvas.GetComponent<Canvas>().planeDistance = 5;
+        pauseCanvas.GetComponent<Canvas>().planeDistance = 1.1f;
         foreach (GameObject ball  in GameObject.FindGameObjectsWithTag("ball") )
         {
             ball.GetComponent<BallController>().pause();
@@ -166,7 +166,7 @@ public class WorldController : MonoBehaviour {
     public void unpause()
     {
         
-        buttonsGame.GetComponent<Canvas>().planeDistance = 5;
+        buttonsGame.GetComponent<Canvas>().planeDistance = 1.1f;
         pauseCanvas.GetComponent<Canvas>().planeDistance = -5;
         foreach (GameObject ball in GameObject.FindGameObjectsWithTag("ball"))
         {
@@ -178,7 +178,7 @@ public class WorldController : MonoBehaviour {
     {
         unpause();
         gameRoot.SetActive(false);
-        selectorCanvas.GetComponent<Canvas>().planeDistance = 1;
+        selectorCanvas.GetComponent<Canvas>().planeDistance = 1.1f;
         
 
     }
